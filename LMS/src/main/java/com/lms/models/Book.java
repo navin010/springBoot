@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity(name="lms_tbl")
 public class Book {
@@ -22,6 +24,7 @@ public class Book {
 	private String author;
 	
 	@Column(name="purchase_date")
+	@Temporal(TemporalType.DATE)			//convert date from DB to temporal type date, otherwise receive string with date & time. Ensure temporal is placed after column
 	private Date purchaseDate;
 
 	public long getId() {
