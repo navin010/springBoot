@@ -56,6 +56,12 @@ public class MainController {
 		req.setAttribute("mode", "BOOK_VIEW");
 		resp.sendRedirect("/");
 	}
+		
 	
+	@GetMapping("/newBook")
+	public String newBook(HttpServletRequest req) {
+		req.setAttribute("mode", "BOOK_NEW");
+		return "index";
+	}
 	
 }

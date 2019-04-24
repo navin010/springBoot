@@ -20,13 +20,12 @@
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
       <li><a href="#">All Books</a></li>
-      <li><a href="#">New Book</a></li>
+      <li><a href="newBook">New Book</a></li>
     </ul>
   </div>
 </nav>
   
-<div class="container">       
- 
+<div class="container">
    	
    	<c:choose>
    		<c:when test="${mode=='BOOK_VIEW'}">
@@ -53,11 +52,11 @@
 	         	 </tbody>
 		  	</table>
    		</c:when>	
+   		
    		<c:when test="${mode=='BOOK_EDIT'}">
-   			
+   			<!-- form action save determines the URL to send to, in this case POST to /save -->
    			<form action="save" method="POST">
    			  <input type="hidden" class="form-control" name="id" value="${book.id}" id="id">
-   			  <input type="hidden" class="form-control" name="id" value="${book.purchaseDate}" id="id">
    			  
 			  <div class="form-group">
 			    <label for="bookName">Book Name</label>
@@ -69,9 +68,27 @@
 			  </div>
 			  
 			  <button type="submit" class="btn btn-primary">Submit</button>
-			</form>
-   			
+			</form>	
    		</c:when>
+   		
+   		<c:when test="${mode=='BOOK_NEW'}">
+   			<!-- form action save determines the URL to send to, in this case POST to /save -->
+   			<form action="save" method="POST">
+   			  
+			  <div class="form-group">
+			    <label for="bookName">Book Name</label>
+			    <input type="text" class="form-control" name="bookName" value="${book.bookName}" id="bookName">
+			  </div>
+			  <div class="form-group">
+			    <label for="author">Author</label>
+			    <input type="text" class="form-control" name="author" value="${book.author}" id="author">
+			  </div>
+			  
+			  <button type="submit" class="btn btn-primary">Submit</button>
+			</form>	
+   		</c:when>
+   		
+   		
    	</c:choose>
     
       

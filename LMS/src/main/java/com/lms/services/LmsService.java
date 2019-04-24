@@ -38,14 +38,17 @@ public class LmsService {
 	
 	public void save(Book book) throws ParseException {
 		
+		//Format current date in to SQL format
 		java.util.Date dt = new java.util.Date();
 		java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String currentDateTimeString = sdf.format(dt);
 		
+		//Convert current date from String to Date type
 		java.util.Calendar c = java.util.Calendar.getInstance();
 		c.setTime(sdf.parse(currentDateTimeString));
 		Date currentDateTime = c.getTime();
 		
+		//Overwrite book date
 		book.setPurchaseDate(currentDateTime);
 		
 		lmsRepository.save(book);
