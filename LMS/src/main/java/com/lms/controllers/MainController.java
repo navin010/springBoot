@@ -64,4 +64,14 @@ public class MainController {
 		return "index";
 	}
 	
+	@GetMapping("/deleteBook")
+	public void deleteBook(@RequestParam long id, HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		lmsService.delete(id);
+		req.setAttribute("books", lmsService.findAllBooks());	
+		req.setAttribute("mode", "BOOK_VIEW");
+		resp.sendRedirect("/");
+	}
+	
+	
+	
 }
