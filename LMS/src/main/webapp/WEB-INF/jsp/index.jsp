@@ -55,9 +55,10 @@
    		</c:when>	
    		<c:when test="${mode=='BOOK_EDIT'}">
    			
-   			<form>
-   				<input type="hidden" class="form-control" name="id" value="${book.id}" id="id">
-   			
+   			<form action="save" method="POST">
+   			  <input type="hidden" class="form-control" name="id" value="${book.id}" id="id">
+   			  <input type="hidden" class="form-control" name="id" value="${book.purchaseDate}" id="id">
+   			  
 			  <div class="form-group">
 			    <label for="bookName">Book Name</label>
 			    <input type="text" class="form-control" name="bookName" value="${book.bookName}" id="bookName">
@@ -66,10 +67,7 @@
 			    <label for="author">Author</label>
 			    <input type="text" class="form-control" name="author" value="${book.author}" id="author">
 			  </div>
-			  <div class="form-group">
-			    <label for="purchaseDate">Purchase Date</label>
-			    <input type="text" class="form-control" name="purchaseDate" value="${book.purchaseDate}" id="purchaseDate">
-			  </div>
+			  
 			  <button type="submit" class="btn btn-primary">Submit</button>
 			</form>
    			
